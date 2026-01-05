@@ -1,0 +1,108 @@
+/* ----------  birthday-card.css  (with tidy asset-folder paths) ---------- */
+
+/* ---- reset / bg ---- */
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  cursor: url("assets/css/cursor.png") 16 16, auto;
+  background: #000;
+}
+#bgVid {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ---- centred board ---- */
+#board {
+  position: relative;
+  width: 1920px;
+  height: 940px;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;              /* keeps hot-zone above video */
+}
+#overlayAsset {
+  position: absolute;
+  inset: 0;
+  background: url("assets/css/overlay.png") center / contain no-repeat;
+  pointer-events: none;
+}
+
+/* ---- responsive open hot-zone ---- */
+#hotZone {
+  position: absolute;
+  left: 60.7%;          /* 1165/1920 */
+  top: 33.2%;           /* 312/940  */
+  width: 3.1%;          /* 60/1920  */
+  height: 19%;          /* 180/940  */
+  cursor: url("assets/css/hover.png") 16 16, pointer;
+  border: 2px dashed #fff;
+  z-index: 5;
+}
+
+/* ---- pop-up card ---- */
+.pop-card {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 100;
+  cursor: url("assets/css/cursor.png") 16 16, auto;
+}
+@keyframes zoomIn {
+  0%   { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+@keyframes zoomOut {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(0.6); opacity: 0; }
+}
+.flipper {
+  width: 820px;
+  height: 690px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease;
+  cursor: url("assets/css/cursor.png") 16 16, auto;
+  animation: zoomIn 0.15s ease;
+  will-change: transform;
+}
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+.front {
+  background: url("assets/css/Card1.png") center / cover no-repeat;
+}
+.back {
+  background: url("assets/css/Back.png") center / cover no-repeat;
+  transform: rotateY(180deg);
+}
+.flipper.flipped {
+  transform: rotateY(180deg);
+}
+
+/* ---- close patch ---- */
+#closeZone {
+  position: absolute;
+  bottom: 140px;
+  right: 1170px;
+  width: 189px;
+  height: 76px;
+  background: url("assets/css/exit.png") center / contain no-repeat;
+  cursor: url("assets/css/hover.png") 16 16, pointer;
+  z-index: 9999;
+}

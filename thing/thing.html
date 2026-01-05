@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday Card</title>
+  <!-- index.html -->
+<link rel="stylesheet" href="hays.css">
+...
+<video id="bgVid" autoplay muted loop playsinline>
+  <source src="assets/video/202601050105 (1).mp4" type="video/mp4">
+</video>
+</head>
+
+<body>
+  <!-- background video -->
+  <video id="bgVid" autoplay muted loop playsinline>
+    <source src="css proper/202601050105 (1).mp4" type="video/mp4">
+  </video>
+
+  <!-- 1920×940 stage -->
+  <div id="board">
+    <div id="overlayAsset"></div>
+    <div id="hotZone"></div>
+  </div>
+
+  <!-- pop-up card -->
+  <div class="pop-card" id="popCard">
+    <div class="flipper" id="flipper">
+      <div class="face front"></div>
+      <div class="face back"></div>
+    </div>
+    <div id="closeZone"></div>
+  </div>
+
+  <script src="card.js"></script>
+</body>
+</html>
